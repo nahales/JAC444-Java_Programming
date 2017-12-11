@@ -40,6 +40,7 @@ Write a test program that prompts the user to enter three sides of the triangle,
 Also display a test scenario where the exception is thrown and user will be displayed appropriate message.
 
 
+
 Task 2:
 
 Write a hangman game that randomly generates a word and prompts the user to guess one letter at a time, as shown in the sample run. Each letter in the word is displayed as an asterisk. When the user makes a correct guess, the actual letter is then displayed. When the user finishes a word, display the number of misses and ask the user whether to continue to play with another word. The program reads the words stored in a text file named hangman.txt. Words are delimited by spaces. Also make sure you properly handle exceptions in the program like “FileNotFoundException”.
