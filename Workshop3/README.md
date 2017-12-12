@@ -8,6 +8,7 @@ displays the words and their occurrences in alphabetical order of the words.
 The program uses a TreeMap to store an entry consisting of a word and its count. For each word, check whether it is already a key in the map. If not, add an entry to the map with the word as the key and value 1. Otherwise, increase the value for the word (key) by 1 in the map. Assume the words are case insensitive; e.g., Good is treated the same as good.
 
 CountOccurrenceOfWords.java
+
 import java.util.*;
 public class CountOccurrenceOfWords {
 public static void main(String[] args) {
