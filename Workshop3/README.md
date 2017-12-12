@@ -51,6 +51,7 @@ count. Also check the proper Exception.
 Task 2
 
 Part a (Easy part)
+
 Generate a lottery of a three digit number. The program prompts the user to enter a
 three-digit number and determines whether the user wins according to the following
 rules:
@@ -59,6 +60,7 @@ rules:
 3. If one digit in the user input matches a digit in the lottery number, the award is $1,000.
 
 Part b
+
 Revise above program to add an additional $2,000 award if two digits from the user
 input are in the lottery number. Use the Collection’s appropriate method to check
 whether the two digits in the user input are in the lottery number. Proper Exception
