@@ -42,22 +42,30 @@ Implement one server that serves both the clients. Sample output below,
 - Server side:
 
 MultiThreadServer started at Thu Dec 14 04:53:15 EST 2017
-Connection from Socket[addr=/127.0.0.1,port=57327,localport=8000] at Thu Dec 14 04:53:36 EST
-2017
-Connection from Socket[addr=/127.0.0.1,port=57328,localport=8000] at Thu Dec 14 04:54:34 EST
-2017
+
+Connection from Socket[addr=/127.0.0.1,port=57327,localport=8000] at Thu Dec 14 04:53:36 EST 2017
+
+Connection from Socket[addr=/127.0.0.1,port=57328,localport=8000] at Thu Dec 14 04:54:34 EST 2017
+
 user1: hi how are you?
+
 user2: i am fine
+
 user2: How are you?
 
 - Client side:
 
 Enter you name: user1
+
 Enter Text: hi how are you?
+
 Enter Text:
 
 
 Enter you name: user2
+
 Enter Text: i am fine
+
 Enter Text: How are you?
+
 Enter Text:
