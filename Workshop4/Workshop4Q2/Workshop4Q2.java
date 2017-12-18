@@ -30,33 +30,16 @@ public class Workshop4Q2 {
                 mBanks[i][bank][loan] = input.nextDouble();
             }
         }
-
-        boolean[] unsafeIndex = new boolean[mBanks.length];
-        double [] total = new double[5];
-        boolean isSafe = false;
-        while (!isSafe) {
-            isSafe = true;
-            for (int banks = 0; banks < mBanks.length; banks++) {
-                total[banks] = mBanks[banks][0][0];
-                for (int LoanedBanks = 1; LoanedBanks < mBanks[banks].length; LoanedBanks++) {
-                    int index = (int)mBanks[banks][LoanedBanks][bankID];
-                    if (!unsafeIndex[index])
-                    	total[banks] += mBanks[banks][LoanedBanks][loan];
-                }
-                if (total[banks] < limit && !unsafeIndex[banks]) {
-                	unsafeIndex[banks] = true;
-                    isSafe = false;
-                }
-            }
-        }
-        
+        System.out.println("");
+        displayMatrix(mBanks);
+        boolean[] unsafeIndex = scanBanks(mBanks, limit);
         List<Integer> unsafeArr = new ArrayList<Integer>();
         for (int i = 0; i < unsafeIndex.length; i++) {
         	if (unsafeIndex[i] == true) {
         		unsafeArr.add(i);
-        		System.out.println("Bank# " + i + " total assets: $" + total[i] + " --> Unsafe");
+        		System.out.println("Bank# " + i + ": unsafe");
         	} else {
-        		System.out.println("Bank# " + i + " total assets: $" + total[i] + " --> Safe");
+        		System.out.println("Bank# " + i + ": safe");
         	}
         }
         
@@ -77,5 +60,42 @@ public class Workshop4Q2 {
         }
         
         input.close();
+    }
+
+    public static boolean[] scanBanks(double[][][] m, int limit) {
+
+        boolean[] indexUnsafeBanks = new boolean[m.length];
+        double total;
+        boolean isSafe = false;
+        while (!isSafe) {
+            isSafe = true;
+            for (int banks = 0; banks < m.length; banks++) {
+                total = m[banks][0][0];
+                for (int LoanedBanks = 1; LoanedBanks < m[banks].length; LoanedBanks++) {
+                    int index = (int)m[banks][LoanedBanks][bankID];
+                    if (!indexUnsafeBanks[index])
+                        total += m[banks][LoanedBanks][loan];
+                }
+                if (total < limit && !indexUnsafeBanks[banks]) {
+                    indexUnsafeBanks[banks] = true;
+                    isSafe = false;
+                }
+            }
+        }
+        return indexUnsafeBanks;
+    }
+
+    public static void displayMatrix(double[][][] m) {
+
+        System.out.printf("%-5s%-5s%-5s%-5s%-5s%-5s%-5s\n",
+                "Bank #|", "Balance $|", "Loaned #|", "Bank ID|", "Amount $|", "Bank ID|", "Amount $|");
+        for (int banks = 0; banks < m.length; banks++) {
+            System.out.printf("%-6d|%9.2f|%8d|", banks, m[banks][0][0], m[banks].length -1);
+
+            for (int LoanedBanks = 1; LoanedBanks < m[banks].length; LoanedBanks++) {
+                System.out.printf("%7.0f|%8.2f|", m[banks][LoanedBanks][bankID], m[banks][LoanedBanks][loan]);
+            }
+            System.out.println("");
+        }
     }
 }
