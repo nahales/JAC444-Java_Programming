@@ -1,5 +1,3 @@
-package workhsop4q3;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,19 +11,18 @@ public class Client {
 		System.out.print("Enter your name: ");
 		Scanner input = new Scanner(System.in);
         String name = input.nextLine();
-		
 		PrintWriter printWriter = new PrintWriter(getSocket().getOutputStream(), true);
-		BufferedReader bufferedReader = new java.io.BufferedReader(new InputStreamReader(System.in));
-		
+		BufferedReader bufferedReader = new java.io.BufferedReader(new InputStreamReader(System.in));	
 		while (true) {
-			System.out.print("Enter your message: ");
+			System.out.print("Enter Text: ");
 			String readerInput = bufferedReader.readLine();
 			printWriter.println(name + ": " + readerInput);
 		}
 	}
 	
-	public static Socket getSocket() throws UnknownHostException, IOException{
-		Socket socket = new Socket("localhost", 7777);
+	public static Socket getSocket() throws UnknownHostException, IOException {
+		Socket socket = new Socket("localhost", 8000);
 		return socket;
 	}
 }
+
