@@ -25,4 +25,3 @@ public class Client {
 		return socket;
 	}
 }
-
